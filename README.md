@@ -1,16 +1,9 @@
-# VIMNET (Unofficial) — Spatiotemporal Transformer for Vehicle Interaction Modeling
-
-This repository is a **research-grade, from-scratch implementation** of the paper draft you provided:
-
-> **VIMNET: Spatiotemporal Transformer for Vehicle Interaction Modeling via Trajectory Prediction in Dynamic Traffic**
+# VIMNET: Spatiotemporal Transformer for Vehicle Interaction Modeling via Trajectory Prediction in Dynamic Traffic
 
 The goal is to make it easy to reproduce:
 - **Datasets:** **pNEUMA** (urban) and **highD** (highway)
 - **Experimental settings:** 10 Hz, 2s observation, 5s prediction, ego-frame normalization, Savitzky–Golay denoising, kinematic filtering
 - **Ablations:** neighborhood construction (sector / kNN / radius), edge typing & active/passive asymmetry, temporal modeling (spatial-only / temporal-only / GSAN-style), decoder head design, single-task vs multi-task fine-tuning
-
-> ⚠️ This is an *unofficial* implementation and is not affiliated with the dataset authors.
-
 ---
 
 ## 1) Environment
@@ -183,22 +176,3 @@ python scripts/finetune.py --cfg configs/ablations/finetune_highd_single_lc.yaml
 ```
 
 ---
-
-## 6) Notes on Differences vs the Draft
-
-The draft describes several biases and architectural knobs. This implementation supports them via config:
-
-- **Typed sector edges:** `use_type_bias`, `use_slot_type_embeddings`
-- **Active/passive asymmetry:** `use_actpas_bias`
-- **Distance bias in attention:** `use_distance_bias`
-- **VIMNET-FixedWeights:** `fixed_spatial_weights`
-
-The attention layer uses a **block-sparse mask**:
-- Causal temporal edges within each slot
-- EV↔neighbor edges inside each frame
-
----
-
-## 7) Citation
-
-If you use this code in research, please cite the original datasets (highD, pNEUMA) and the paper draft.
