@@ -1,0 +1,28 @@
+raw_dir: /path/to/highD/data
+out_dir: data/processed
+
+hz: 10.0
+obs_sec: 2.0
+pred_sec: 5.0
+stride_sec: 0.5
+
+sg_window: 9
+sg_poly: 2
+max_speed_mps: 55.0
+max_lat_acc_mps2: 8.0
+
+lc_threshold_m: 1.75
+
+neighborhood:
+  mode: sector   # sector | knn | radius
+  num_sectors: 8
+  fov_lon_m: 20.0
+  fov_lat_m: 10.0
+  knn_k: 8
+  radius_m: 50.0
+
+shard_size: 2048
+compress: false
+prefer_highd_neighbors: true
+
+splits_yaml: configs/splits/highd.yaml

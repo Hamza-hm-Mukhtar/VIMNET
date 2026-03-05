@@ -1,0 +1,32 @@
+raw_dir: /path/to/pNEUMA/csv_tiles
+out_dir: data/processed
+coords: auto
+
+
+hz: 10.0
+obs_sec: 2.0
+pred_sec: 5.0
+stride_sec: 0.5
+
+sg_window: 9
+sg_poly: 2
+max_speed_mps: 55.0
+max_lat_acc_mps2: 8.0
+
+lc_threshold_m: 1.75
+
+neighborhood:
+  mode: sector
+  num_sectors: 8
+  fov_lon_m: 20.0
+  fov_lat_m: 10.0
+  knn_k: 8
+  radius_m: 50.0
+
+shard_size: 2048
+compress: false
+
+# If you want to restrict which pNEUMA object types are used, list them here (exact strings in your CSV).
+include_types: null
+
+splits_yaml: configs/splits/pneuma.yaml
