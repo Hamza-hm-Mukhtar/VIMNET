@@ -1,0 +1,20 @@
+# VIMNET-NoTypes: remove sector/role embeddings and edge type bias.
+num_slots: 9
+dim: 256
+depth: 6
+num_heads: 8
+dropout: 0.1
+attn_dropout: 0.1
+ffn_mult: 4
+stochastic_depth: 0.05
+
+enable_spatial: true
+enable_temporal: true
+
+use_distance_bias: true
+use_type_bias: false
+use_actpas_bias: true
+fixed_spatial_weights: false
+
+use_slot_type_embeddings: false
+use_role_embeddings: false

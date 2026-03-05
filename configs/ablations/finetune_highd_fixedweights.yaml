@@ -1,0 +1,37 @@
+# Typed-edges ablation: VIMNET-FixedWeights
+train_shard_dir: data/processed/highd/train
+val_shard_dir: data/processed/highd/val
+test_shard_dir: data/processed/highd/test
+out_dir: runs/ablations/highd_fixedweights
+
+pretrained_ckpt: runs/pretrain/best_pretrain.pt
+
+seed: 1
+device: cuda
+num_workers: 4
+
+obs_len: 20
+pred_len: 50
+batch_size: 64
+
+lr_encoder: 0.0002
+lr_heads: 0.0005
+weight_decay: 0.01
+grad_clip: 1.0
+epochs: 60
+warmup_frac: 0.05
+early_stop_patience: 8
+
+train_tp: true
+train_lc: true
+lambda_lc: 0.5
+label_smoothing: 0.05
+
+max_free_running_ratio: 0.2
+free_running_warmup_frac: 0.3
+
+context_pool: last
+use_temporal_gru_adapter: false
+trajectory_head: gru
+
+model_yaml: configs/ablations/model_fixedweights.yaml

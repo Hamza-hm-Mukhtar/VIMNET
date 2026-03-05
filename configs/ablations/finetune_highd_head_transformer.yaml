@@ -1,0 +1,34 @@
+# Trajectory head ablation: Transformer decoder
+train_shard_dir: data/processed/highd/train
+val_shard_dir: data/processed/highd/val
+test_shard_dir: data/processed/highd/test
+out_dir: runs/ablations/highd_head_transformer
+
+pretrained_ckpt: runs/pretrain/best_pretrain.pt
+
+seed: 1
+device: cuda
+num_workers: 4
+
+obs_len: 20
+pred_len: 50
+batch_size: 64
+
+lr_encoder: 0.0002
+lr_heads: 0.0005
+weight_decay: 0.01
+grad_clip: 1.0
+epochs: 60
+warmup_frac: 0.05
+early_stop_patience: 8
+
+train_tp: true
+train_lc: false
+lambda_lc: 0.0
+label_smoothing: 0.05
+
+context_pool: last
+use_temporal_gru_adapter: false
+trajectory_head: transformer
+
+model_yaml: configs/model/vimnet_base.yaml
