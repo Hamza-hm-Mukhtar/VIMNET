@@ -1,0 +1,20 @@
+train_shard_dir: data/processed/mixed_pretrain/train
+val_shard_dir: data/processed/mixed_pretrain/val
+out_dir: runs/pretrain
+
+seed: 1
+device: cuda
+num_workers: 4
+
+obs_len: 20
+pretrain_ctx: 12
+batch_size: 128
+
+lr: 0.0003
+weight_decay: 0.01
+grad_clip: 1.0
+max_steps: 200000
+warmup_frac: 0.05
+eval_every: 2000
+
+model_yaml: configs/model/vimnet_base.yaml
