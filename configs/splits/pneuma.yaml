@@ -1,0 +1,5 @@
+# pNEUMA split by 'flight tile' file. Fill with your actual CSV names.
+# The paper uses a 70/10/20 split by tile with non-overlapping time windows.
+train: []
+val: []
+test: []
